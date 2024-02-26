@@ -1,15 +1,22 @@
-import React from 'react'
-import CatProfile from './CatProfile'
+import React from "react";
+import AnimalCard from "./AnimalCard";
 
-export default function List({cats}) {
+export default function List({ cats }) {
+  console.log(cats);
+  const style = {
+    display:"flex",
+    flexWrap: "wrap"
+    
+  }
   return (
-    <ul className='list'>
-        {
-            cats &&
-            cats.map((element)=>{
-                <CatProfile cat={element}/>
-            })
-        }
+    <ul className="list" style={style}>
+      {
+        cats && 
+        cats.map((element) => 
+          <li key={element.id}>
+            <AnimalCard cat={element} />
+          </li>
+        )}
     </ul>
-  )
+  );
 }
