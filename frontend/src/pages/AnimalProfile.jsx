@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
 import { useParams, useSearchParams } from "react-router-dom";
+import Col from "react-bootstrap/Col";
 export default function AnimalProfile() {
   const id = useParams().id;
 
@@ -25,17 +26,43 @@ export default function AnimalProfile() {
       "Content-Type": "application/vnd.api+json",
     },
   };
+
   return (
     <Container>
       {info && img && (
         <>
-          <div>
-            <img src={img.attributes.original.url} style={{ width: "20em" }} />
-          </div>
-          <h1>{info.attributes.name}</h1>
-          <p>Breed String: {info.attributes.breedString}</p>
+          <Col>
+            <div className="profile-img">
+              {img.attributes && (
+                <img
+                  src={img.attributes.original.url}
+                  style={{ width: "20em" }}
+                />
+              )}
+            </div>
+          </Col>
 
-          <p>Sex: {info.attributes.sex}</p>
+          <Col>
+            <div className="profile-info">
+              <h1>{info.attributes.name}</h1>
+              <p>Breed String: {info.attributes.breedString}</p>
+
+              <p>Sex: {info.attributes.sex}</p>
+              {info.attributes.birthDate && (
+                <p>Birthdate: {info.attributes.birthDate}</p>
+              )}
+
+              {info.attributes.isDeclawed && (
+                <p>Declawed: {info.attributes.isDeclawed ? "Yes" : "No"}</p>
+              )}
+
+              {info.attributes.isSpecialNeeds && (
+                <p>
+                  Special Needs: {info.attributes.isSpecialNeeds ? "Yes" : "No"}
+                </p>
+              )}
+            </div>
+          </Col>
         </>
       )}
     </Container>
