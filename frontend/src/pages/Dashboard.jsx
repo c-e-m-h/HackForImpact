@@ -4,8 +4,6 @@ import List from "../components/List";
 import axios from "axios";
 import filter from "../utility/Filter";
 export default function Dashboard() {
-  const [response, setResponse] = useState([]);
-
   const [cats, setCats] = useState([]);
   const [vaccinated, setVaccinated] = useState([]);
   const [unvaccinated, setUnvaccinated] = useState([]);
@@ -26,7 +24,7 @@ export default function Dashboard() {
 
         const unva = filter("isCurrentVaccinations", data.data, false);
         setUnvaccinated(unva);
-        console.log('imva',unva);
+        console.log("imva", unva);
 
         setCats(data);
       });
@@ -43,7 +41,7 @@ export default function Dashboard() {
 
       <section>
         <h2>Unvaccinated</h2>
-        <List className='unvaccinated' cats={unvaccinated}/>
+        <List className="unvaccinated" cats={unvaccinated} />
       </section>
     </div>
   );

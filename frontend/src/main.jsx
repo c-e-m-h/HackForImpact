@@ -6,18 +6,23 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./pages/Dashboard.jsx";
 import CatProfile from "./components/AnimalCard.jsx";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import AnimalProfile from "./pages/AnimalProfile.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Dashboard />,
   },
   {
-    path: "/animal/{:id}",
+    path: "/animal/:id",
+    element: <AnimalProfile />,
   },
 ]);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
 );
+
+
