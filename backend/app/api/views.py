@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from backend.app.services.rescue_groups import RescueGroupsAPI
+from backend.app.services import RescueGroupsAPI
 
 
 bp = Blueprint('animals', __name__)
