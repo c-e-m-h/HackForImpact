@@ -5,7 +5,7 @@ db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username:password@localhost/your_database_name'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:data101@localhost:5432/HackForImpact'
     
     db.init_app(app)
     
